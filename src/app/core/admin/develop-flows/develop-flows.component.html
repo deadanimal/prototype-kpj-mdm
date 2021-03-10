@@ -1,0 +1,169 @@
+<div class="header pb-6">
+    <div class="container-fluid">
+        <div class="header-body">
+            <div class="row align-items-center py-4">
+                <div class="col-lg-6 col-7">
+                    <h6 class="h2 text-dark d-inline-block mb-0">Shared Flows</h6>
+
+                    <nav aria-label="breadcrumb" class=" d-none d-md-inline-block ml-md-4">
+                        <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
+                            <li class=" breadcrumb-item">
+                                <a href="javascript:void(0)"> <i class="fas fa-file-code text-dark"> </i> </a>
+                            </li>
+                            <li class="breadcrumb-item">
+                                <a href="javascript:void(0)" class="text-dark"> Develop </a>
+                            </li>
+                            <li aria-current="page" class="breadcrumb-item active">
+                                Shared Flows
+                            </li>
+                        </ol>
+                    </nav>
+                </div>
+
+                <div class="col-lg-6 col-5 text-right">
+                    <div class="mr-1 dropdown" dropdown>
+                        <button class="btn btn-default btn-sm dropdown-toggle" type="button" id="dropdownMenuButton" dropdownToggle>
+                            <i class="fas fa-plus"></i>
+                            Shared Flow
+                        </button>
+                        <div  aria-labelledby="dropdownMenuButton" *dropdownMenu class="dropdown-menu dropdown-menu-right">
+                            <a class="dropdown-item" (click)="openModal(addShared)">New Shared Flow</a>
+                            <a class="dropdown-item" (click)="openModal(uploadBundle)">Upload Bundle</a>
+                        </div>
+                    </div>
+				</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid mt--6">
+    <div class="row">
+        <div class="col">
+            <div class="card">
+                <div class="table-responsive">
+                    <table class="table align-items-center table-flush">
+                        <thead class="thead-light">
+                            <tr>
+                                <th scope="col">Name</th>
+                                <th scope="col">Environments</th>
+                                <th scope="col">Modified Date</th>
+                            </tr>
+                        </thead>
+                        <tbody class="list">
+                            <tr>
+                                <th scope="row">Flow 1</th>
+                                <td>-</td>
+                                <td>22/01/2020</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<ng-template #addShared>
+    <div class="modal-header bg-default">
+        <h6 class="modal-title text-white my-auto" id="modal-title-default">
+            Create a Shared Flow
+        </h6>
+
+        <button
+            aria-label="Close"
+            class="close"
+            data-dismiss="modal"
+            type="button"
+            (click)="closeModal()"
+        >
+            <span aria-hidden="true" class="text-white my-auto"> × </span>
+        </button>
+    </div>
+
+    <div class="modal-body">
+        <form>
+            <div class="form-group">
+                <label class="form-control-label">Name</label>
+                <input 
+                  class="form-control"
+                  placeholder="Name"
+                  type="text"
+                >
+            </div>
+            <div class="form-group">
+                <label class="form-control-label">Description</label>
+                <textarea class="form-control" placeholder="Description"></textarea>
+            </div>
+        </form>
+    </div>
+
+    <div class="modal-footer mt--3">
+        <button 
+            class="btn btn-success"
+            type="button"
+            (click)="confirm()"
+        >
+            Create
+        </button>
+
+        <button
+            class="btn btn-outline-danger ml-auto"
+            data-dismiss="modal"
+            type="button"
+            (click)="closeModal()"
+        >
+            Close
+        </button>
+    </div>
+</ng-template>
+
+<ng-template #uploadBundle>
+    <div class="modal-header bg-default">
+        <h6 class="modal-title text-white my-auto" id="modal-title-default">
+            Upload Bundle
+        </h6>
+
+        <button
+            aria-label="Close"
+            class="close"
+            data-dismiss="modal"
+            type="button"
+            (click)="closeModal()"
+        >
+            <span aria-hidden="true" class="text-white my-auto"> × </span>
+        </button>
+    </div>
+
+    <div class="modal-body">
+        <form>
+            <div class="form-group">
+                <label class="form-control-label">Files</label>
+                <input 
+                  class="form-control"
+                  placeholder="Upload"
+                  type="file"
+                >
+            </div>
+        </form>
+    </div>
+
+    <div class="modal-footer mt--3">
+        <button 
+            class="btn btn-success"
+            type="button"
+            (click)="confirm()"
+        >
+            Upload
+        </button>
+
+        <button
+            class="btn btn-outline-danger ml-auto"
+            data-dismiss="modal"
+            type="button"
+            (click)="closeModal()"
+        >
+            Close
+        </button>
+    </div>
+</ng-template>
